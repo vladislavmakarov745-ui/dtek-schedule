@@ -28,7 +28,7 @@ jobs:
       - run: npx playwright install --with-deps chromium
 
       - name: Scrape DTEK
-        run: node scraper.mjs
+        run: node github/scraper.mjs
         env:
           QUEUE: '2.2'
 
