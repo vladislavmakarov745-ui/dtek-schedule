@@ -28,26 +28,36 @@ try {
   );
   const ds = await page.evaluate(() => JSON.parse(JSON.stringify(DisconSchedule)));
 
-  const days = {};
+  // Все очереди: queues["2.2"].days["2026-11-10"] = [24 значения]
+  const collected = {};
   for (const [ts, groups] of Object.entries(ds.fact?.data ?? {})) {
-    const key = Object.keys(groups).find((k) => k.endsWith(QUEUE));
-    if (!key) continue;
-    const hours = groups[key];
-    // hours: {"1":"yes", ..., "24":"no"}; час h = интервал (h-1):00–h:00
-    days[kyivDate(Number(ts))] = Array.from({ length: 24 }, (_, i) => hours[String(i + 1)] ?? 'yes');
+    const date = kyivDate(Number(ts));
+    for (const [groupKey, hours] of Object.entries(groups)) {
+      const m = groupKey.match(/(\d+(?:\.\d+)?)$/);
+      if (!m) continue;
+      const q = m[1];
+      collected[q] ??= { days: {} };
+      collected[q].days[date] = Array.from({ length: 24 }, (_, i) => hours[String(i + 1)] ?? 'yes');
+    }
   }
-  if (!Object.keys(days).length) throw new Error(`Очередь ${QUEUE} не найдена в fact.data`);
+  const queues = Object.fromEntries(
+    Object.entries(collected).sort(([a], [b]) => a.localeCompare(b, 'en', { numeric: true }))
+  );
+  if (!queues[QUEUE]) throw new Error(`Очередь ${QUEUE} не найдена в fact.data`);
 
-  const groupKey = Object.keys(Object.values(ds.fact.data)[0] ?? {}).find((k) => k.endsWith(QUEUE));
-  const preset = ds.preset?.data?.[groupKey] ?? null;
-
-  const result = { queue: QUEUE, source_update: ds.fact?.update ?? null, days, preset };
+  // days/queue на верхнем уровне оставлены для совместимости со старой версией приложения
+  const result = {
+    queue: QUEUE,
+    source_update: ds.fact?.update ?? null,
+    days: queues[QUEUE].days,
+    queues,
+  };
 
   let prev = null;
   try { prev = JSON.parse(fs.readFileSync(OUT, 'utf8')); } catch {}
   const same =
     prev &&
-    JSON.stringify(prev.days) === JSON.stringify(days) &&
+    JSON.stringify(prev.queues) === JSON.stringify(queues) &&
     prev.source_update === result.source_update;
   if (!same) {
     fs.writeFileSync(OUT, JSON.stringify({ ...result, updated: new Date().toISOString() }, null, 2));
