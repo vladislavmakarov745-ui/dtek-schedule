@@ -28,6 +28,10 @@ try {
   );
   const ds = await page.evaluate(() => JSON.parse(JSON.stringify(DisconSchedule)));
 
+  // Диагностика: сырые данные страницы (без большого блока preset), чтобы найти, где лежит график на завтра
+  const { preset: _preset, ...debugData } = ds;
+  fs.writeFileSync('debug.json', JSON.stringify({ keys: Object.keys(ds), ...debugData }, null, 2));
+
   // Все очереди: queues["2.2"].days["2026-11-10"] = [24 значения]
   const collected = {};
   for (const [ts, groups] of Object.entries(ds.fact?.data ?? {})) {
