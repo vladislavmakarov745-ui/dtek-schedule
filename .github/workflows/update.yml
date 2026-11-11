@@ -10,12 +10,12 @@ permissions:
 
 concurrency:
   group: update-schedule
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   scrape:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
 
@@ -25,7 +25,7 @@ jobs:
 
       - run: npm install
 
-      - run: npx playwright install --with-deps chromium
+      - run: npx playwright install chromium
 
       - name: Scrape DTEK
         run: node scraper.mjs
