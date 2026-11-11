@@ -1,4 +1,4 @@
-// Забирает график отключений ДТЭК (Одесса) для всех очередей и сохраняет в schedule.json
+// Забирает график отключений ДТЭК (Одесса) для одной очереди и сохраняет в schedule.json
 import { chromium } from 'playwright';
 import fs from 'node:fs';
 
@@ -20,6 +20,7 @@ const page = await context.newPage();
 
 try {
   await page.goto(URL, { waitUntil: 'domcontentloaded', timeout: 60000 });
+  // Страница содержит глобальный объект DisconSchedule с графиками всех очередей
   await page.waitForFunction(
     () => typeof DisconSchedule !== 'undefined' && DisconSchedule.fact,
     null,
@@ -44,32 +45,21 @@ try {
   );
   if (!queues[QUEUE]) throw new Error(`Очередь ${QUEUE} не найдена в fact.data`);
 
-  // Диагностика: какие поля есть на странице (чтобы найти график на завтра)
-  const { fact, preset, ...other } = ds;
-  let otherText = JSON.stringify(other);
-  if (otherText.length > 6000) otherText = otherText.slice(0, 6000) + '…(обрезано)';
-  const debug = {
-    keys: Object.keys(ds),
-    factKeys: Object.keys(fact ?? {}),
-    factDataKeys: Object.keys(fact?.data ?? {}),
-    factDataDates: Object.keys(fact?.data ?? {}).map((ts) => kyivDate(Number(ts))),
-    factOther: Object.fromEntries(Object.entries(fact ?? {}).filter(([k]) => k !== 'data')),
-    presetKeys: Object.keys(preset ?? {}),
-    other: otherText,
-  };
-
+  // days/queue на верхнем уровне оставлены для совместимости со старой версией приложения
   const result = {
     queue: QUEUE,
-    source_update: fact?.update ?? null,
+    source_update: ds.fact?.update ?? null,
     days: queues[QUEUE].days,
     queues,
-    debug,
   };
 
   let prev = null;
   try { prev = JSON.parse(fs.readFileSync(OUT, 'utf8')); } catch {}
-  const strip = (o) => JSON.stringify({ queues: o?.queues, debug: o?.debug, u: o?.source_update });
-  if (!prev || strip(prev) !== strip(result)) {
+  const same =
+    prev &&
+    JSON.stringify(prev.queues) === JSON.stringify(queues) &&
+    prev.source_update === result.source_update;
+  if (!same) {
     fs.writeFileSync(OUT, JSON.stringify({ ...result, updated: new Date().toISOString() }, null, 2));
     console.log('schedule.json обновлён');
   } else {
