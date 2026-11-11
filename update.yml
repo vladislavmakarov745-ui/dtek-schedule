@@ -33,7 +33,7 @@ jobs:
           fi
 
       - - name: Install Chromium
-        run: npx playwright install chromium
+  run: npx playwright install chromium
 
       - name: Scrape DTEK
         run: node scraper.mjs
