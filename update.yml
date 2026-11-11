@@ -2,7 +2,8 @@ name: Update schedule
 
 on:
   schedule:
-    - cron: '0 * * * *'
+    # Минуты не «круглые»: на :00/:15/:30/:45 у GitHub самая высокая нагрузка, и запуски часто пропускаются
+    - cron: '7,22,37,52 * * * *'
   workflow_dispatch:
 
 permissions:
@@ -28,7 +29,7 @@ jobs:
       - run: npx playwright install --with-deps chromium
 
       - name: Scrape DTEK
-        run: node github/scraper.mjs
+        run: node scraper.mjs
         env:
           QUEUE: '2.2'
 
@@ -46,5 +47,5 @@ jobs:
         run: |
           git config user.name "schedule-bot"
           git config user.email "bot@users.noreply.github.com"
-          git add schedule.json debug.json
-          git diff --staged --quiet || (git commit -m "Update schedule" && git push)
+          git add schedule.json
+          git diff --staged --quiet || (git commit -m "Update schedule" && git pull --rebase origin main && git push)
