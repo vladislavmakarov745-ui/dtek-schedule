@@ -3,7 +3,7 @@ name: Update schedule
 on:
   schedule:
     # Минуты не «круглые»: на :00/:15/:30/:45 у GitHub самая высокая нагрузка, и запуски часто пропускаются
-    - cron: '7,22,37,52 * * * *'
+    - cron: '13 * * * *'
   workflow_dispatch:
 
 permissions:
@@ -16,7 +16,7 @@ concurrency:
 jobs:
   scrape:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
 
