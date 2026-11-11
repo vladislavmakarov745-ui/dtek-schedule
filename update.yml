@@ -32,8 +32,8 @@ jobs:
             npm install --no-audit --no-fund
           fi
 
-      - name: Install Chromium
-        run: npx playwright install --with-deps chromium
+      - - name: Install Chromium
+        run: npx playwright install chromium
 
       - name: Scrape DTEK
         run: node scraper.mjs
