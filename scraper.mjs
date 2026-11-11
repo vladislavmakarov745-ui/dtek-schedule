@@ -19,12 +19,12 @@ const context = await browser.newContext({
 const page = await context.newPage();
 
 try {
-  await page.goto(URL, { waitUntil: 'domcontentloaded', timeout: 60000 });
+  await page.goto(URL, { waitUntil: 'domcontentloaded', timeout: 45000 });
   // Страница содержит глобальный объект DisconSchedule с графиками всех очередей
   await page.waitForFunction(
     () => typeof DisconSchedule !== 'undefined' && DisconSchedule.fact,
     null,
-    { timeout: 45000 }
+    { timeout: 30000 }
   );
   const ds = await page.evaluate(() => JSON.parse(JSON.stringify(DisconSchedule)));
 
@@ -67,8 +67,8 @@ try {
   }
 } catch (e) {
   console.error('Ошибка:', e.message);
-  fs.writeFileSync('debug.html', await page.content());
-  await page.screenshot({ path: 'debug.png' });
+  try { fs.writeFileSync('debug.html', await page.content()); } catch (debugError) { console.error('Не удалось сохранить HTML:', debugError.message); }
+  try { await page.screenshot({ path: 'debug.png', timeout: 10000 }); } catch (debugError) { console.error('Не удалось сохранить скриншот:', debugError.message); }
   process.exitCode = 1;
 } finally {
   await browser.close();
