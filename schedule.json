@@ -1,6 +1,6 @@
 {
   "queue": "2.2",
-  "source_update": "17.11.2026 06:01",
+  "source_update": "17.11.2026 11:25",
   "days": {
     "2026-11-17": [
       "yes",
@@ -165,12 +165,12 @@
           "yes",
           "yes",
           "yes",
+          "yes",
+          "yes",
+          "yes",
+          "yes",
           "no",
-          "no",
           "yes",
-          "yes",
-          "yes",
-          "first",
           "yes",
           "yes",
           "second",
@@ -195,8 +195,8 @@
           "yes",
           "yes",
           "yes",
-          "no",
-          "no",
+          "yes",
+          "yes",
           "yes",
           "yes",
           "yes",
@@ -205,8 +205,8 @@
           "yes",
           "second",
           "no",
-          "no",
-          "no"
+          "first",
+          "yes"
         ]
       }
     },
@@ -227,16 +227,16 @@
           "yes",
           "yes",
           "yes",
-          "no",
-          "no",
-          "no",
           "yes",
+          "yes",
+          "yes",
+          "first",
           "yes",
           "yes",
           "second",
           "no",
-          "first",
-          "yes"
+          "no",
+          "no"
         ]
       }
     },
@@ -255,8 +255,8 @@
           "yes",
           "yes",
           "yes",
-          "no",
-          "no",
+          "yes",
+          "yes",
           "yes",
           "yes",
           "yes",
@@ -286,9 +286,9 @@
           "yes",
           "yes",
           "yes",
-          "second",
-          "no",
-          "no",
+          "yes",
+          "yes",
+          "yes",
           "no",
           "first",
           "yes",
@@ -316,9 +316,9 @@
           "yes",
           "yes",
           "yes",
-          "second",
-          "no",
-          "no",
+          "yes",
+          "yes",
+          "yes",
           "no",
           "first",
           "yes",
@@ -346,9 +346,9 @@
           "yes",
           "yes",
           "yes",
-          "second",
-          "no",
-          "no",
+          "yes",
+          "yes",
+          "yes",
           "no",
           "no",
           "no",
@@ -377,8 +377,8 @@
           "yes",
           "yes",
           "yes",
-          "no",
-          "no",
+          "yes",
+          "yes",
           "no",
           "first",
           "yes",
@@ -391,5 +391,5 @@
       }
     }
   },
-  "updated": "2026-11-17T04:10:45.198Z"
+  "updated": "2026-11-17T09:31:06.628Z"
 }
