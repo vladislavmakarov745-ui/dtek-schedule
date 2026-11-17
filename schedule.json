@@ -1,6 +1,6 @@
 {
   "queue": "2.2",
-  "source_update": "17.11.2026 15:11",
+  "source_update": "17.11.2026 17:34",
   "days": {
     "2026-11-17": [
       "yes",
@@ -21,9 +21,9 @@
       "yes",
       "yes",
       "yes",
-      "no",
-      "no",
-      "no",
+      "yes",
+      "yes",
+      "yes",
       "yes",
       "yes",
       "yes"
@@ -51,11 +51,11 @@
           "yes",
           "yes",
           "yes",
-          "no",
-          "no",
-          "no",
-          "no",
-          "first",
+          "yes",
+          "yes",
+          "yes",
+          "yes",
+          "yes",
           "yes"
         ]
       }
@@ -81,9 +81,9 @@
           "yes",
           "yes",
           "yes",
-          "no",
-          "no",
-          "no",
+          "yes",
+          "yes",
+          "yes",
           "yes",
           "yes",
           "yes"
@@ -111,9 +111,9 @@
           "yes",
           "yes",
           "yes",
-          "no",
-          "no",
-          "no",
+          "yes",
+          "yes",
+          "yes",
           "yes",
           "yes",
           "yes"
@@ -141,9 +141,9 @@
           "yes",
           "yes",
           "yes",
-          "no",
-          "no",
-          "no",
+          "yes",
+          "yes",
+          "yes",
           "yes",
           "yes",
           "yes"
@@ -173,10 +173,10 @@
           "yes",
           "yes",
           "yes",
-          "second",
-          "no",
-          "no",
-          "no"
+          "yes",
+          "yes",
+          "yes",
+          "yes"
         ]
       }
     },
@@ -203,10 +203,10 @@
           "yes",
           "yes",
           "yes",
-          "second",
-          "no",
-          "no",
-          "no"
+          "yes",
+          "yes",
+          "yes",
+          "yes"
         ]
       }
     },
@@ -233,9 +233,9 @@
           "yes",
           "yes",
           "yes",
-          "second",
-          "no",
-          "first",
+          "yes",
+          "yes",
+          "yes",
           "yes"
         ]
       }
@@ -263,10 +263,10 @@
           "yes",
           "yes",
           "yes",
-          "second",
-          "no",
-          "no",
-          "no"
+          "yes",
+          "yes",
+          "yes",
+          "yes"
         ]
       }
     },
@@ -351,9 +351,9 @@
           "yes",
           "yes",
           "yes",
-          "no",
-          "no",
-          "no",
+          "yes",
+          "yes",
+          "yes",
           "yes",
           "yes",
           "yes"
@@ -391,5 +391,5 @@
       }
     }
   },
-  "updated": "2026-11-17T13:20:46.385Z"
+  "updated": "2026-11-17T15:40:41.993Z"
 }
