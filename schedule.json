@@ -1,6 +1,6 @@
 {
   "queue": "2.2",
-  "source_update": "20.11.2026 16:20",
+  "source_update": "20.11.2026 18:06",
   "days": {
     "2026-11-20": [
       "yes",
@@ -21,12 +21,12 @@
       "yes",
       "yes",
       "yes",
-      "yes",
-      "yes",
-      "yes",
-      "yes",
-      "yes",
-      "yes"
+      "second",
+      "no",
+      "no",
+      "no",
+      "no",
+      "no"
     ]
   },
   "queues": {
@@ -55,7 +55,7 @@
           "no",
           "no",
           "no",
-          "first",
+          "yes",
           "yes"
         ]
       }
@@ -85,7 +85,7 @@
           "no",
           "no",
           "no",
-          "first",
+          "yes",
           "yes"
         ]
       }
@@ -111,10 +111,10 @@
           "yes",
           "yes",
           "yes",
-          "yes",
-          "yes",
-          "yes",
-          "yes",
+          "second",
+          "no",
+          "no",
+          "no",
           "yes",
           "yes"
         ]
@@ -141,12 +141,12 @@
           "yes",
           "yes",
           "yes",
-          "yes",
-          "yes",
-          "yes",
-          "yes",
-          "yes",
-          "yes"
+          "second",
+          "no",
+          "no",
+          "no",
+          "no",
+          "no"
         ]
       }
     },
@@ -175,8 +175,8 @@
           "yes",
           "yes",
           "yes",
-          "yes",
-          "yes"
+          "no",
+          "no"
         ]
       }
     },
@@ -205,8 +205,8 @@
           "yes",
           "yes",
           "yes",
-          "yes",
-          "yes"
+          "no",
+          "no"
         ]
       }
     },
@@ -235,8 +235,8 @@
           "yes",
           "yes",
           "yes",
-          "yes",
-          "yes"
+          "no",
+          "no"
         ]
       }
     },
@@ -352,9 +352,9 @@
           "no",
           "no",
           "no",
-          "yes",
-          "yes",
-          "yes",
+          "no",
+          "no",
+          "no",
           "yes",
           "yes"
         ]
@@ -391,5 +391,5 @@
       }
     }
   },
-  "updated": "2026-11-20T14:31:10.665Z"
+  "updated": "2026-11-20T16:10:56.397Z"
 }
