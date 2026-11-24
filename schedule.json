@@ -1,6 +1,6 @@
 {
   "queue": "2.2",
-  "source_update": "24.11.2026 10:58",
+  "source_update": "24.11.2026 14:22",
   "days": {
     "2026-11-24": [
       "first",
@@ -197,8 +197,8 @@
           "yes",
           "yes",
           "yes",
-          "yes",
-          "yes",
+          "no",
+          "no",
           "no",
           "first",
           "yes",
@@ -227,8 +227,8 @@
           "no",
           "no",
           "no",
-          "yes",
-          "yes",
+          "second",
+          "no",
           "no",
           "first",
           "yes",
@@ -257,8 +257,8 @@
           "no",
           "no",
           "no",
-          "yes",
-          "yes",
+          "second",
+          "no",
           "no",
           "first",
           "yes",
@@ -290,10 +290,10 @@
           "no",
           "no",
           "no",
-          "first",
-          "yes",
-          "yes",
-          "yes",
+          "no",
+          "no",
+          "no",
+          "no",
           "yes",
           "yes",
           "yes"
@@ -323,7 +323,7 @@
           "no",
           "no",
           "no",
-          "first",
+          "no",
           "yes",
           "yes",
           "yes"
@@ -347,13 +347,13 @@
           "yes",
           "yes",
           "yes",
-          "yes",
-          "yes",
-          "no",
           "no",
           "no",
           "no",
           "first",
+          "yes",
+          "yes",
+          "yes",
           "yes",
           "yes",
           "yes"
@@ -383,7 +383,7 @@
           "no",
           "no",
           "no",
-          "first",
+          "no",
           "yes",
           "yes",
           "yes"
@@ -391,5 +391,5 @@
       }
     }
   },
-  "updated": "2026-11-24T09:10:49.396Z"
+  "updated": "2026-11-24T12:31:08.435Z"
 }
