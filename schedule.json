@@ -1,6 +1,6 @@
 {
   "queue": "2.2",
-  "source_update": "26.11.2026 13:42",
+  "source_update": "26.11.2026 14:18",
   "days": {
     "2026-11-26": [
       "yes",
@@ -47,7 +47,7 @@
           "no",
           "no",
           "no",
-          "no",
+          "first",
           "yes",
           "yes",
           "yes",
@@ -197,8 +197,8 @@
           "yes",
           "yes",
           "yes",
-          "yes",
-          "yes",
+          "second",
+          "no",
           "no",
           "no",
           "no",
@@ -227,8 +227,8 @@
           "yes",
           "yes",
           "yes",
-          "yes",
-          "yes",
+          "second",
+          "no",
           "no",
           "no",
           "no",
@@ -391,5 +391,5 @@
       }
     }
   },
-  "updated": "2026-11-26T11:50:50.910Z"
+  "updated": "2026-11-26T12:20:55.082Z"
 }
